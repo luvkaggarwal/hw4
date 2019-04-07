@@ -13,7 +13,6 @@ const examples = {
       'Buda-Pesth seems a wonderful place.',
   'example3':
       'Scepticism was as much the result of knowledge, as knowledge is of scepticism.',
-      
   'example4':
       'The craving for reasons is instinctive, and the dreamer's sense of logic even dominates his sense of time.'
 };
