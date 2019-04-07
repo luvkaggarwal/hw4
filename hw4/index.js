@@ -8,13 +8,13 @@ const HOSTED_URLS = {
 
 const examples = {
   'example1':
-      'Alice was beginning to get very tired of sitting by her sister on the bank.',
+      "Alice was beginning to get very tired of sitting by her sister on the bank.",
   'example2':
-      'Buda-Pesth seems a wonderful place.',
+      "Buda-Pesth seems a wonderful place.",
   'example3':
-      'Scepticism was as much the result of knowledge, as knowledge is of scepticism.',
+      "Scepticism was as much the result of knowledge, as knowledge is of scepticism.",
   'example4':
-      'The craving for reasons is instinctive, and the dreamer's sense of logic even dominates his sense of time.'
+      "The craving for reasons is instinctive, and the dreamer's sense of logic even dominates his sense of time."
 };
 
 function status(statusText) {
