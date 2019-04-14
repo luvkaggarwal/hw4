@@ -8,13 +8,15 @@ const HOSTED_URLS = {
 
 const examples = {
   'example1':
-      "Two other passengers, besides the one, were plodding up the hill by the side of the mail.",
+      "When we was passing by the kitchen I fell over a root and made a noise.",
   'example2':
-      "Buda-Pesth seems a wonderful place.",
+      "Mary wished to say something sensible, but knew not how.",
   'example3':
-      "Scepticism was as much the result of knowledge, as knowledge is of scepticism.",
+      "The last burst carried the mail to the summit of the hill.",
   'example4':
-      "The craving for reasons is instinctive, and the dreamer's sense of logic even dominates his sense of time."
+      "Scarcely had we proceeded two days on the sea, when about sunrise a great many Whales and other monsters of the sea, appeared",
+  'example5':
+      "With Bewick on my knee, I was then happy: happy at least in my way."
 };
 
 function status(statusText) {
