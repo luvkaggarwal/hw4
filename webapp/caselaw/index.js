@@ -4,19 +4,28 @@ window.onload = async function () {
         window.location.href = '../index.html';
     } else {
       document.getElementById('greeting').innerText = 'Welcome ' + user;
-      await load_data();
+      let result = await load_data();
+      alert('all cool');
     }
 };
 
-async function load_data() {
-    var xhr = new XMLHttpRequest();
-
-    xhr.onload = async function () {
-        alert(this.responseText);
-    };
-    xhr.open('GET', 'references.txt');
-    await xhr.send();
-};
+function load_data() {
+    return new Promise(function (resolve, reject) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'references.txt');
+        xhr.onload = function () {
+            if (this.status >= 200 && this.status < 300) {
+                resolve(xhr.response);
+            } else {
+                reject({
+                    status: this.status,
+                    statusText: xhr.statusText
+                });
+            }
+        };
+        xhr.send();
+    });
+}
 
 // const log = document.querySelector('.event-log');
 
