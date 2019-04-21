@@ -8,28 +8,13 @@ window.onload = function () {
     }
 };
 
-// function load_data()
-// {
-//     var rawFile = new XMLHttpRequest();
-//     rawFile.open("GET", 'references.txt', false);
-//     rawFile.onreadystatechange = function ()
-//     {
-//         alert('all cool');
-//         if(rawFile.readyState === 4)
-//         {
-//             alert('all cool');
-//             if(rawFile.status === 200 || rawFile.status == 0)
-//             {
-//                 var allText = rawFile.responseText;
-//                 alert(allText);
-//             }
-//         }
-//     }
-//     rawFile.send(null);
-// };
-
 function load_data() {
     var xhr = new XMLHttpRequest();
+
+    xhr.onprogress = function () {
+        alert('LOADING: ', xhr.status);
+    };
+
     xhr.onload = function () {
         alert(this.responseText);
     };
