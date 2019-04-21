@@ -4,25 +4,8 @@ window.onload = function () {
         window.location.href = '../index.html';
     } else {
       document.getElementById('greeting').innerText = 'Welcome ' + user;
-      load_data();
+      //load_data();
     }
-};
-
-function reas() {
-    var r = new FileReader();
-    r.onload = function(e) { 
-        var contents = e.target.result;
-        alert ( "Got the file.n" 
-              + "name: " + f.name + "n"
-              + "type: " + f.type + "n"
-              + "size: " + f.size + " bytesn"
-              + "starts with: " 
-              + contents.substr(1, contents.indexOf("n"))
-        );
-    }
-    alert('all cool');
-    r.readAsText('references.txt');
-    alert('all cool');
 };
 
 function load_data()
@@ -44,8 +27,3 @@ function load_data()
     }
     rawFile.send(null);
 };
-
-function rerere() {
-  var data = fetch('references.txt');
-  alert(data);
-}
