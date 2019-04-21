@@ -4,26 +4,35 @@ window.onload = function () {
         window.location.href = '../index.html';
     } else {
       document.getElementById('greeting').innerText = 'Welcome ' + user;
-      //load_data();
+      load_data();
     }
 };
 
-function load_data()
-{
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", 'references.txt', false);
-    rawFile.onreadystatechange = function ()
-    {
-        alert('all cool');
-        if(rawFile.readyState === 4)
-        {
-            alert('all cool');
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                alert(allText);
-            }
-        }
-    }
-    rawFile.send(null);
+// function load_data()
+// {
+//     var rawFile = new XMLHttpRequest();
+//     rawFile.open("GET", 'references.txt', false);
+//     rawFile.onreadystatechange = function ()
+//     {
+//         alert('all cool');
+//         if(rawFile.readyState === 4)
+//         {
+//             alert('all cool');
+//             if(rawFile.status === 200 || rawFile.status == 0)
+//             {
+//                 var allText = rawFile.responseText;
+//                 alert(allText);
+//             }
+//         }
+//     }
+//     rawFile.send(null);
+// };
+
+function load_data() {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        alert(this.responseText);
+    };
+    xhr.open('GET', 'references.txt');
+    xhr.send();
 };
