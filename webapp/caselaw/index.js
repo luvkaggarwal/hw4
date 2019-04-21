@@ -36,7 +36,6 @@ function addListeners(xhr) {
 
 function load_data() {
     log.textContent = '';
-
     const xhr = new XMLHttpRequest();
     addListeners(xhr);
     xhr.open('GET', 'references.txt');
