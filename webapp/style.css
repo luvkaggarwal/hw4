@@ -42,8 +42,11 @@ div {
 }
 body {
     background-color: white;
-    background-image: url("background.png");
-    text-align: center;
+    background-image: url("background.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 img {
     border-radius: 50%;
