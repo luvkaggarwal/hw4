@@ -1,44 +1,54 @@
-window.onload = function () {
+window.onload = async function () {
     var user = sessionStorage.getItem("user");
     if ( user == null ) {
         window.location.href = '../index.html';
     } else {
       document.getElementById('greeting').innerText = 'Welcome ' + user;
-      load_data();
+      await load_data();
     }
 };
 
-// function load_data() {
-//     var xhr = new XMLHttpRequest();
+async function load_data() {
+    var xhr = new XMLHttpRequest();
 
-//     xhr.onprogress = function () {
-//         alert('LOADING: ', xhr.status);
-//     };
+    xhr.onload = async function () {
+        alert(this.responseText);
+    };
+    xhr.open('GET', 'references.txt');
+    await xhr.send();
+};
 
-//     xhr.onload = function () {
-//         alert(this.responseText);
-//     };
-//     xhr.open('GET', 'references.txt');
-//     xhr.send();
+// const log = document.querySelector('.event-log');
+
+// function handleEvent(e) {
+//     log.textContent = log.textContent + `${e.type}: ${e.loaded} bytes transferred\n`;
 // };
 
-const log = document.querySelector('.event-log');
+// function addListeners(xhr) {
+//     xhr.addEventListener('loadstart', handleEvent);
+//     xhr.addEventListener('load', handleEvent);
+//     xhr.addEventListener('progress', handleEvent);
+// };
 
-function handleEvent(e) {
-    log.textContent = log.textContent + `${e.type}: ${e.loaded} bytes transferred\n`;
-};
+// function load_data() {
+//     log.textContent = '';
+//     const xhr = new XMLHttpRequest();
+//     addListeners(xhr);
+//     xhr.open('GET', 'references.txt');
+//     xhr.send();
+//     alert(xhr.responseText);  
+// };
 
-function addListeners(xhr) {
-    xhr.addEventListener('loadstart', handleEvent);
-    xhr.addEventListener('load', handleEvent);
-    xhr.addEventListener('progress', handleEvent);
-};
+// function load_data () {
+//     var sr = fetch('references.txt');
+//     alert(sr);
+//     var fileContents = sr.ReadToEnd();
+//     alert('all cool');
+//     sr.Close();
+//     alert('all cool');
 
-function load_data() {
-    log.textContent = '';
-    const xhr = new XMLHttpRequest();
-    addListeners(xhr);
-    xhr.open('GET', 'references.txt');
-    xhr.send();
-    alert(xhr.responseText);  
-};
+//     var mydata = fileContents.Split("\n"[0]);
+ 
+//     var myrandom = Random.Range(1,10);
+//     alert(mydata[myrandom]);
+// };
