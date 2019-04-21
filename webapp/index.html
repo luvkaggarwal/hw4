@@ -2,19 +2,33 @@
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
     <title>NLPCLS</title>
 </head>
 <body>
     <div align="center">
-        <form method="post" action="/security/loginCheck">
-            <h3>Enter Your Credentials</h3>
-            <input type="number" name="userid" autocomplete="off" placeholder="Enter your userid">
-            <input type="password" name="password" placeholder="Enter your password">
-            <input type='text' required name='captcha' autocomplete="off" placeholder='Enter the code'>
-            <a href="/security/forgotPassword">Forgot Password</a>
-            <a href="/security/signup">Sign Up</a>
-            <input type="submit" value="Login">
-            <a href="/security/visitor">Visitor</a>
+        <form id="checkin" method="post" onsubmit="return validate(this)">
+            <h1>Bonjour !</h1>
+
+            <h3>Identify Yourself !</h3>
+            <select name="user" required>
+                <option disabled selected value> -- select -- </option>
+                <option>Frank</option>
+                <option>Joan</option>
+                <option>Lilian</option>
+                <option>Luv</option>              
+                <option>Maxime</option>
+            </select>
+
+            <h3>Choose a Module !</h3>
+            <select name="module" required>
+                <option disabled selected value> -- select -- </option>
+                <option value="caselaw">Caselaw Verification</option>
+                <option value="sentence">Sentence Classification</option>
+            </select>
+            
+            <br>
+            <input type="submit" value="Start">
         </form>
     </div>
 </body>
