@@ -1,49 +1,21 @@
-
 <!doctype html>
-
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>NLPCLS</title>
+</head>
 <body>
-  <style>
-    #textfield {
-      font-size: 120%;
-      width: 60%;
-      height: 200px;
-    }
-  </style>
-  <h1>
-    Title
-  </h1>
-  <hr>
-  <div class="create-model">
-    <button id="load-model" style="display:none">Load model</button>
-  </div>
-  <div>
-    <div>
-      <span>Vocabulary size: </span>
-      <span id="vocabularySize"></span>
+    <div align="center">
+        <form method="post" action="/security/loginCheck">
+            <h3>Enter Your Credentials</h3>
+            <input type="number" name="userid" autocomplete="off" placeholder="Enter your userid">
+            <input type="password" name="password" placeholder="Enter your password">
+            <input type='text' required name='captcha' autocomplete="off" placeholder='Enter the code'>
+            <a href="/security/forgotPassword">Forgot Password</a>
+            <a href="/security/signup">Sign Up</a>
+            <input type="submit" value="Login">
+            <a href="/security/visitor">Visitor</a>
+        </form>
     </div>
-    <div>
-      <span>Max length: </span>
-      <span id="maxLen"></span>
-    </div>
-  </div>
-  <hr>
-  <div>
-    <select id="example-select" class="form-control">
-      <option value="example1">Huckleberry Finn</option>
-      <option value="example2">Pride and Prejudice</option>
-      <option value="example3">Two Cities</option>
-      <option value="example4">Moby Dick</option>
-      <option value="example5">Jane Eyre</option>
-    </select>
-  </div>
-  <div>
-    <textarea id="text-entry"></textarea>
-  </div>
-  <hr>
-  <div>
-    <span id="status">Standing by.</span>
-  </div>
-
-  <script src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js'></script>
-  <script src='index.js'></script>
 </body>
+</html> 
