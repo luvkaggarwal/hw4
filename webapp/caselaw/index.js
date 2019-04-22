@@ -41,13 +41,14 @@ window.onload = function () {
     if ( user == null ) {
         window.location.href = '../index.html';
     } else {
+        console.log('I was here')
         myJsonData().then(function (result) {
             console.log("myJsonArray: " + result);
             alert(result);
             // do something else here
         });
         document.getElementById('greeting').innerText = 'Welcome ' + user;
-        alert('here 16');
+        alert('here 17');
     }
 }
 
