@@ -5,6 +5,6 @@ function validate(obj) {
         obj.submit();
     } else if ( obj.module.value == "sentence"){
         obj.action = "sentence/index.html";
-        obj.submit()
+        obj.submit();
     };
 };

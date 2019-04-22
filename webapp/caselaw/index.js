@@ -47,7 +47,7 @@ window.onload = function () {
             // do something else here
         });
         document.getElementById('greeting').innerText = 'Welcome ' + user;
-        alert('here 15');
+        alert('here 16');
     }
 }
 
@@ -56,6 +56,7 @@ function myJsonData() {
       var request = new XMLHttpRequest();
       //request.setRequestHeader("content-type", "application/json");
       request.onreadystatechange = function() {
+          console.log('inside on readyState ' + request.readyState + ' ' + request.status);
           if (request.readyState === 4) {
               if (request.status === 200) {
                   //var myJsonString = JSON.parse(request.responseText);
@@ -64,6 +65,7 @@ function myJsonData() {
               }
           }
       }
+      console.log('after on readyState');
       request.open('GET', 'references.txt', true);
       request.send();
   });
