@@ -43,20 +43,18 @@ window.onload = function () {
     } else {
         myJsonData().then(function (result) {
             console.log("myJsonArray: " + result);
-            alert(result.one);
+            alert(result);
             // do something else here
         });
         document.getElementById('greeting').innerText = 'Welcome ' + user;
-        alert('here 14');
+        alert('here 15');
     }
 }
 
 function myJsonData() {
   return new Promise(function (resolve, reject) {
       var request = new XMLHttpRequest();
-      request.open('GET', 'references.txt', true);
       //request.setRequestHeader("content-type", "application/json");
-      request.send(null);
       request.onreadystatechange = function() {
           if (request.readyState === 4) {
               if (request.status === 200) {
@@ -65,9 +63,11 @@ function myJsonData() {
                   resolve(request.responseText);
               }
           }
-      } // onreadystatechange
+      }
+      request.open('GET', 'references.txt', true);
+      request.send();
   });
-}; // var myJsonData
+};
 
 // window.onload = function() {
 //     var user = sessionStorage.getItem("user");
