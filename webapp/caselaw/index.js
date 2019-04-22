@@ -48,7 +48,7 @@ window.onload = function () {
             // do something else here
         });
         document.getElementById('greeting').innerText = 'Welcome ' + user;
-        alert('here 17');
+        alert('here 18');
     }
 }
 
