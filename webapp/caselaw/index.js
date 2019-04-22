@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       let result = await load_data();
       document.getElementById('greeting').innerText = 'Welcome ' + user;
-      alert('all cool');
+      alert(result);
     }
 };
 
