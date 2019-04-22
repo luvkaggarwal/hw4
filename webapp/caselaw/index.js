@@ -25,5 +25,5 @@ function myJsonData() {
 
 function process(data) {
     var cases = data.split("\n");
-    alert(cases[0]);
+    console.log(cases[0]);
 };
