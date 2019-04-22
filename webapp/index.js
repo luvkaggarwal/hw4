@@ -7,5 +7,5 @@ function validate(obj) {
         obj.action = "sentence/index.html";
         obj.submit()
     };
-    return false;
+    return true;
 };
