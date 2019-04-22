@@ -24,6 +24,12 @@ function myJsonData() {
 };
 
 function process(data) {
+    var dict = {};
     var cases = data.split("\n");
-    console.log(cases[0]);
+    for (var i = 0; i < cases.length; i++) {
+        var data = JSON.parse(cases[i]);
+        var key = Object.keys(data)[0];
+        dict.key = data[key];
+    }
+    console.log(Object.keys(dict));
 };
