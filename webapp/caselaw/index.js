@@ -1,10 +1,10 @@
-window.onload = async function () {
+document.addEventListener("DOMContentLoaded", function () {
     var user = sessionStorage.getItem("user");
     if ( user == null ) {
         window.location.href = '../index.html';
     } else {
-      document.getElementById('greeting').innerText = 'Welcome ' + user;
       let result = await load_data();
+      document.getElementById('greeting').innerText = 'Welcome ' + user;
       alert('all cool');
     }
 };
@@ -22,6 +22,12 @@ function load_data() {
                     statusText: xhr.statusText
                 });
             }
+        };
+        xhr.onerror = function () {
+            reject({
+                status: this.status,
+                statusText: xhr.statusText
+            });
         };
         xhr.send();
     });
