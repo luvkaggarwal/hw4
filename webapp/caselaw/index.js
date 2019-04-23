@@ -27,8 +27,9 @@ function myJsonData() {
 
 function process(data) {
     var cases = data.split("\n");
-    console.log(JSON.parse(cases[1]));
+    console.log(JSON.parse(cases[0]));
     for (var i = 0; i < cases.length; i++) {
+        console.log(i);
         var caselaw = JSON.parse(cases[i]);
         var key = Object.keys(caselaw)[0];
         dict.key = caselaw[key];
