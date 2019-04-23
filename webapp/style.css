@@ -2,8 +2,20 @@
     border: none;
     background-color: transparent;
     display: block;
-    overflow: scroll;
+    overflow-y: auto;
     height: 400px;
+}
+
+.caselaw input[type=text] {
+    display: block;
+    margin: 1%;
+    width: 350px;
+    height: 35px;
+    border-radius: 3px;
+    border: 1px solid #CCCCCC;
+    font-size: 14px;
+    padding-left: 10px;
+    transition: .3s;
 }
 
 input[type=text], input[type=number], select {
@@ -17,6 +29,18 @@ input[type=text], input[type=number], select {
     padding-left: 10px;
     transition: .3s;
 }
+
+input[type=checkbox] {
+    display: block;
+    margin: 1%;
+    width: 35px;
+    height: 35px;
+    border-radius: 3px;
+    border: 1px solid #CCCCCC;
+    padding-left: 10px;
+    transition: .3s;
+}
+
 input[type=submit], input[type=button] {
     width: 160px;
     height: 40px;

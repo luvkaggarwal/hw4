@@ -52,6 +52,7 @@ function display() {
         
         var td = tr.insertCell(0);
         var ele = document.createElement('input');
+        ele.setAttribute('class', 'caselaw')
         ele.setAttribute('type', 'text');
         ele.setAttribute('value', caselaws[i]);
         ele.setAttribute('readonly', 'true');
