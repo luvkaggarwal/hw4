@@ -1,3 +1,11 @@
+.table div {
+    border: none;
+    background-color: transparent;
+    display: block;
+    overflow: scroll;
+    height: 400px;
+}
+
 input[type=text], input[type=number], select {
     display: block;
     margin: 1%;
