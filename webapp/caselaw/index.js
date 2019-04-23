@@ -30,9 +30,7 @@ function process(data) {
     for (var i = 0; i < cases.length; i++) {
         if (cases[i]) {
             var caselaw = JSON.parse(cases[i]);
-            console.log(Object.keys(caselaw));
             var key = Object.keys(caselaw)[0];
-            console.log(key);
             dict[key] = caselaw[key];
         }
     }
@@ -47,7 +45,7 @@ function display() {
     document.getElementById('case').value = keys[randomIndex];
     
     var table = document.getElementById('caselaws');
-    var caselaws = dict[key[randomIndex]];
+    var caselaws = dict[keys[randomIndex]];
     for (var i = 0; i < caselaws.length; i++) {
         console.log(caselaws[i]);
         var tr = table.insertRow(i);

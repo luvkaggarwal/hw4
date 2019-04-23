@@ -9,7 +9,7 @@ input[type=text], input[type=number], select {
     padding-left: 10px;
     transition: .3s;
 }
-input[type=submit] {
+input[type=submit], input[type=button] {
     width: 160px;
     height: 40px;
     margin: 3%;
@@ -22,7 +22,7 @@ input[type=submit] {
     border-radius: 3px;
     cursor: pointer;
 }
-input[type=submit]:hover {
+input[type=submit]:hover, input[type=button]:hover {
     background-color: #3b77e5;
 }
 form {
