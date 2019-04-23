@@ -1,3 +1,5 @@
+var dict = {};
+
 window.onload = function () {
     var user = sessionStorage.getItem("user");
     if ( user == null ) {
@@ -24,14 +26,23 @@ function myJsonData() {
 };
 
 function process(data) {
-    var dict = {};
     var cases = data.split("\n");
-    console.log(cases[2]);
-    console.log(JSON.parse(cases[2]));
     for (var i = 0; i < cases.length; i++) {
-        var data = JSON.parse(cases[i]);
-        var key = Object.keys(data)[0];
-        dict.key = data[key];
+        var caselaw = JSON.parse(cases[i]);
+        var key = Object.keys(caselaw)[0];
+        dict.key = caselaw[key];
     }
     console.log(Object.keys(dict));
+    display();
+};
+
+function display() {
+    var doclist = document.getElementById('caselist');
+    var keys = Object.keys(dict);
+    for (var i = 0; i < keys.length; i++) {
+        var opt = document.createElement('option');
+        opt.appendChild(document.createTextNode(keys[i]));
+        doclist.appendChild(opt); 
+    }
+    console.log('List successfully created.');
 };
