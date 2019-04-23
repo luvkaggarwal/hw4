@@ -30,8 +30,10 @@ function process(data) {
     for (var i = 0; i < cases.length; i++) {
         if (cases[i]) {
             var caselaw = JSON.parse(cases[i]);
+            console.log(Object.keys(caselaw));
             var key = Object.keys(caselaw)[0];
-            dict.key = caselaw[key];
+            console.log(key);
+            dict[key] = caselaw[key];
         }
     }
     console.log(Object.keys(dict));
