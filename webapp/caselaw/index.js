@@ -41,12 +41,52 @@ function process(data) {
 };
 
 function display() {
-    var doclist = document.getElementById('caselist');
     var keys = Object.keys(dict);
-    for (var i = 0; i < keys.length; i++) {
-        var opt = document.createElement('option');
-        opt.appendChild(document.createTextNode(keys[i]));
-        doclist.appendChild(opt); 
+    var randomIndex = Math.floor(Math.random() * keys.length);
+    console.log('Index:', randomIndex);
+    document.getElementById('case').value = keys[randomIndex];
+    
+    var table = document.getElementById('caselaws');
+    var caselaws = dict[key[randomIndex]];
+    for (var i = 0; i < caselaws.length; i++) {
+        console.log(caselaws[i]);
+        var tr = table.insertRow(i);
+        
+        var td = tr.insertCell(0);
+        var ele = document.createElement('input');
+        ele.setAttribute('type', 'text');
+        ele.setAttribute('value', caselaws[i]);
+        ele.setAttribute('readonly', 'true');
+        td.appendChild(ele);
+
+        td = tr.insertCell(1);
+        ele = document.createElement('input');
+        ele.setAttribute('type', 'checkbox');
+        td.appendChild(ele);
     }
     console.log('List successfully created.');
+};
+
+function submit(obj) {
+    if ( obj.value == 'Submit' ) {
+        var table = document.getElementById('caselaws');
+        var user = sessionStorage.getItem("user");
+        var file = document.getElementById('case').value;
+        var data = {user: {'file' : file, 'caselaws' : new Array()}};
+
+        // LOOP THROUGH EACH ROW OF THE TABLE.
+        for (var row = 0; row < table.rows.length; row ++) {
+            console.log(table.rows.item(row).cells[1].childNodes[0].selected);
+            if ( table.rows.item(row).cells[1].childNodes[0].selected ) {
+                data[user][caselaws].push(table.rows.item(row).cells[0].childNodes[0].value);
+            }
+            console.log(table.rows.item(row).cells[0].childNodes[0].value);
+        }
+        console.log(data);
+        obj.value = 'Load Another';
+    } else {
+        obj.value = 'Submit';
+        display();
+    }
+    
 };

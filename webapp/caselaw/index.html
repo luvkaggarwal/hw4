@@ -10,11 +10,13 @@
         <form id="caselaw" method="get">
             <h1>Caselaw Verification</h1>
             <h3 id="greeting"></h3>
-            <h3>Pick a case !</h3>
-            <select id="caselist" required>
-                <option disabled selected value> -- select -- </option>
-            </select>
+            <h3>Case Chosen :</h3>
 
+            <input type="text" id="case" readonly>
+            <table id="caselaws"></table>
+
+            <input type="button" value="Submit" onclick="submit(this);">
+            <br>
             <input type="submit" value="Start">
         </form>
     </div>
