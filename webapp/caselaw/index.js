@@ -27,13 +27,12 @@ function myJsonData() {
 
 function process(data) {
     var cases = data.split("\n");
-    console.log(cases[7486]);
-    console.log(JSON.parse(cases[7486]));
     for (var i = 0; i < cases.length; i++) {
-        console.log(i);
-        var caselaw = JSON.parse(cases[i]);
-        var key = Object.keys(caselaw)[0];
-        dict.key = caselaw[key];
+        if (cases[i]) {
+            var caselaw = JSON.parse(cases[i]);
+            var key = Object.keys(caselaw)[0];
+            dict.key = caselaw[key];
+        }
     }
     console.log(Object.keys(dict));
     display();
