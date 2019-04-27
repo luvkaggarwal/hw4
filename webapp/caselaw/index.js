@@ -58,13 +58,14 @@ function display() {
         td = tr.insertCell(1);
         ele = document.createElement('input');
         ele.setAttribute('type', 'checkbox');
-        ele.setAttribute('selected', 'true');
+        ele.setAttribute('checked', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 8');
+    console.log('List successfully created. Take 9');
 };
 
 function submit(obj) {
+    console.log(obj.value);
     if ( obj.value == 'Submit' ) {
         var table = document.getElementById('caselaws');
         var user = sessionStorage.getItem("user");
