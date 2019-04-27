@@ -61,7 +61,7 @@ function display() {
         ele.setAttribute('checked', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 16');
+    console.log('List successfully created. Take 17');
 };
 
 function save_data(obj) {
@@ -70,13 +70,13 @@ function save_data(obj) {
         var table = document.getElementById('caselaws');
         var user = sessionStorage.getItem("user");
         var file = document.getElementById('case').value;
-        var data = {user: {'file' : file, 'caselaws' : new Array()}};
+        var data = {'file' : file, 'caselaws' : new Array()};
 
         // LOOP THROUGH EACH ROW OF THE TABLE.
         for (var row = 0; row < table.rows.length; row ++) {
             console.log(table.rows.item(row).cells[1].childNodes[0].checked);
             if ( table.rows.item(row).cells[1].childNodes[0].checked ) {
-                data[user]['caselaws'].push(table.rows.item(row).cells[0].childNodes[0].value);
+                data['caselaws'].push(table.rows.item(row).cells[0].childNodes[0].value);
             }
             console.log(table.rows.item(row).cells[0].childNodes[0].value);
         }
