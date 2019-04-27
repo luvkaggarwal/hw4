@@ -61,9 +61,10 @@ function display() {
         td = tr.insertCell(1);
         ele = document.createElement('input');
         ele.setAttribute('type', 'checkbox');
+        ele.setAttribute('selected', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 6');
+    console.log('List successfully created. Take 7');
 };
 
 function submit(obj) {

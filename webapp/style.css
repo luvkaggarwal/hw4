@@ -8,13 +8,13 @@
 
 .caselaw input[type=text] {
     display: block;
-    margin: 1%;
+    margin-right: 2%;
     width: 350px;
-    height: 35px;
+    height: 30px;
     border-radius: 3px;
     border: 1px solid #CCCCCC;
-    font-size: 14px;
-    padding-left: 10px;
+    font-size: 10px;
+    padding-left: 6px;
     transition: .3s;
 }
 
@@ -33,11 +33,10 @@ input[type=text], input[type=number], select {
 input[type=checkbox] {
     display: block;
     margin: 1%;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border-radius: 3px;
     border: 1px solid #CCCCCC;
-    padding-left: 10px;
     transition: .3s;
 }
 
