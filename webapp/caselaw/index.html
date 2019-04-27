@@ -6,19 +6,19 @@
     <title>CASELAW</title>
 </head>
 <body>
-    <div align="center">
+    <div align="center" style="margin: 10%;">
         <form method="get">
             <h1>Caselaw Verification</h1>
             <h3 id="greeting"></h3>
             <h3>Case Chosen :</h3>
             <input type="text" id="case" readonly>
             
-            <div style="overflow-y: auto; height: 200px; margin: none;">
+            <div style="overflow-y: auto; height: 200px; margin: 0px;">
             	<table id="caselaws" class="caselaw"></table>
             </div>
 
-            <input type="button" value="Submit" onclick="submit(this);">
-            <input type="submit" value="Start">
+            <input type="submit" value="Submit" onclick="save_data(this);">
+            <input type="button" value="Return" onclick="window.location.href = '../index.html';">
         </form>
     </div>
 </body>

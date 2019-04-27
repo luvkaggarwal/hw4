@@ -61,10 +61,10 @@ function display() {
         ele.setAttribute('checked', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 9');
+    console.log('List successfully created. Take 11');
 };
 
-function submit(obj) {
+function save_data(obj) {
     console.log(obj.value);
     if ( obj.value == 'Submit' ) {
         var table = document.getElementById('caselaws');
