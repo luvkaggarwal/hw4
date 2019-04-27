@@ -3,7 +3,7 @@ var dict = {};
 window.onload = function () {
     var user = sessionStorage.getItem("user");
     if ( user == null ) {
-        window.location.href = '../index.html';
+        window.location.href = '../';
     } else {
         document.getElementById('greeting').innerText = 'Welcome ' + user;
         myJsonData().then(function (result) { process(result); });
@@ -61,7 +61,7 @@ function display() {
         ele.setAttribute('checked', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 12');
+    console.log('List successfully created. Take 13');
 };
 
 function save_data(obj) {
@@ -81,14 +81,16 @@ function save_data(obj) {
             console.log(table.rows.item(row).cells[0].childNodes[0].value);
         }
         console.log(data);
+        alert('Done');
         obj.value = 'Load Another';
     } else {
         obj.value = 'Submit';
         display();
-    } 
+        alert('Load Another???????');
+    }
 };
 
 function dashboard() {
     sessionStorage.removeItem("user")
-    window.location.href = '../index.html';
+    window.location.href = '../';
 }
