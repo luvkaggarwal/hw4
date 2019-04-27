@@ -61,7 +61,7 @@ function display() {
         ele.setAttribute('checked', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 11');
+    console.log('List successfully created. Take 12');
 };
 
 function save_data(obj) {
@@ -87,3 +87,8 @@ function save_data(obj) {
         display();
     } 
 };
+
+function dashboard() {
+    sessionStorage.removeItem("user")
+    window.location.href = '../index.html';
+}
