@@ -61,7 +61,7 @@ function display() {
         ele.setAttribute('checked', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 13');
+    console.log('List successfully created. Take 14');
 };
 
 function save_data(obj) {
@@ -74,14 +74,14 @@ function save_data(obj) {
 
         // LOOP THROUGH EACH ROW OF THE TABLE.
         for (var row = 0; row < table.rows.length; row ++) {
-            console.log(table.rows.item(row).cells[1].childNodes[0].selected);
-            if ( table.rows.item(row).cells[1].childNodes[0].selected ) {
+            console.log(table.rows.item(row).cells[1].childNodes[0].checked);
+            if ( table.rows.item(row).cells[1].childNodes[0].checked ) {
                 data[user][caselaws].push(table.rows.item(row).cells[0].childNodes[0].value);
             }
             console.log(table.rows.item(row).cells[0].childNodes[0].value);
         }
         console.log(data);
-        alert('Done');
+        alert(data);
         obj.value = 'Load Another';
     } else {
         obj.value = 'Submit';
