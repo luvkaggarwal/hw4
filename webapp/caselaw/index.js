@@ -63,7 +63,7 @@ function display() {
         ele.setAttribute('type', 'checkbox');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 5');
+    console.log('List successfully created. Take 6');
 };
 
 function submit(obj) {
