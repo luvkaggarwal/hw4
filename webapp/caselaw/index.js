@@ -49,7 +49,7 @@ function display() {
     for (var i = 0; i < caselaws.length; i++) {
         console.log(caselaws[i]);
         var tr = table.insertRow(i);
-        
+
         var td = tr.insertCell(0);
         var ele = document.createElement('input');
         ele.setAttribute('class', 'caselaw')
@@ -86,6 +86,5 @@ function submit(obj) {
     } else {
         obj.value = 'Submit';
         display();
-    }
-    
+    } 
 };
