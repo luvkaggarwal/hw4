@@ -61,7 +61,7 @@ function display() {
         ele.setAttribute('checked', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 17');
+    console.log('List successfully created. Take 18');
 };
 
 function save_data(obj) {
@@ -74,14 +74,12 @@ function save_data(obj) {
 
         // LOOP THROUGH EACH ROW OF THE TABLE.
         for (var row = 0; row < table.rows.length; row ++) {
-            console.log(table.rows.item(row).cells[1].childNodes[0].checked);
             if ( table.rows.item(row).cells[1].childNodes[0].checked ) {
                 data['caselaws'].push(table.rows.item(row).cells[0].childNodes[0].value);
             }
-            console.log(table.rows.item(row).cells[0].childNodes[0].value);
         }
-        console.log(data);
         alert(data);
+        write_data(data);
         obj.value = 'Load Another';
     } else {
         obj.value = 'Submit';
@@ -93,4 +91,15 @@ function save_data(obj) {
 function dashboard() {
     sessionStorage.removeItem("user")
     window.location.href = '../';
+}
+
+function write_data(data) {
+    var fs = require("fs");
+    fs.writeFile( user + ".json", JSON.stringify(data), (err) => {
+        if (err) {
+            console.error(err);
+            return;
+        };
+        console.log("File has been created");
+    });
 }
