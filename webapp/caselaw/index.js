@@ -34,20 +34,17 @@ function process(data) {
             dict[key] = caselaw[key];
         }
     }
-    console.log(Object.keys(dict));
     display();
 };
 
 function display() {
     var keys = Object.keys(dict);
     var randomIndex = Math.floor(Math.random() * keys.length);
-    console.log('Index:', randomIndex);
     document.getElementById('case').value = keys[randomIndex];
     
     var table = document.getElementById('caselaws');
     var caselaws = dict[keys[randomIndex]];
     for (var i = 0; i < caselaws.length; i++) {
-        console.log(caselaws[i]);
         var tr = table.insertRow(i);
 
         var td = tr.insertCell(0);
@@ -64,7 +61,7 @@ function display() {
         ele.setAttribute('selected', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 7');
+    console.log('List successfully created. Take 8');
 };
 
 function submit(obj) {
