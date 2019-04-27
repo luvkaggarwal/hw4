@@ -61,7 +61,7 @@ function display() {
         ele.setAttribute('checked', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 14');
+    console.log('List successfully created. Take 15');
 };
 
 function save_data(obj) {
@@ -76,6 +76,9 @@ function save_data(obj) {
         for (var row = 0; row < table.rows.length; row ++) {
             console.log(table.rows.item(row).cells[1].childNodes[0].checked);
             if ( table.rows.item(row).cells[1].childNodes[0].checked ) {
+                console.log(table.rows.item(row).cells);
+                console.log(table.rows.item(row).cells[0].childNodes[0].value);
+                alert('Wait');
                 data[user][caselaws].push(table.rows.item(row).cells[0].childNodes[0].value);
             }
             console.log(table.rows.item(row).cells[0].childNodes[0].value);
