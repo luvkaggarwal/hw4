@@ -66,11 +66,9 @@ function display() {
         ele.setAttribute('checked', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 21');
 };
 
 function save_data(obj) {
-    console.log(obj.value);
     if ( obj.value == 'Submit' ) {
         var table = document.getElementById('caselaws');
         var user = sessionStorage.getItem("user");
@@ -86,18 +84,15 @@ function save_data(obj) {
         result.push(data);
         delete dict[file];
         obj.value = 'Load Another';
-        console.log('Removed ' + file + ' from dictionary');
     } else {
         display();
         obj.value = 'Submit';
-        console.log('Load Another???????');
     }
 };
 
 function dashboard() {
     write_data();
     sessionStorage.removeItem("user")
-    alert();
     window.location.href = '../';
 }
 
@@ -119,10 +114,7 @@ var textFile = null, makeTextFile = function (text) {
 function write_data() {
     var link = document.createElement('a');
     link.setAttribute('download', 'caselaw' + sessionStorage.getItem("user") + '.txt');
-    console.log(result);
-    alert(result);
     link.href = makeTextFile(JSON.stringify(result));
-    console.log('File Created ' + link.href);
     document.body.appendChild(link);
 
     // wait for the link to be added to the document
