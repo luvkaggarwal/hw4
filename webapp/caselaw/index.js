@@ -44,6 +44,10 @@ function display() {
     document.getElementById('case').value = keys[randomIndex];
     
     var table = document.getElementById('caselaws');
+    while(table.hasChildNodes()) {
+        table.removeChild(table.firstChild);
+    }
+
     var caselaws = dict[keys[randomIndex]];
     for (var i = 0; i < caselaws.length; i++) {
         var tr = table.insertRow(i);
@@ -62,7 +66,7 @@ function display() {
         ele.setAttribute('checked', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 19');
+    console.log('List successfully created. Take 20');
 };
 
 function save_data(obj) {
@@ -84,15 +88,16 @@ function save_data(obj) {
         obj.value = 'Load Another';
         console.log('Removed ' + file + ' from dictionary');
     } else {
+        display();
         obj.value = 'Submit';
         console.log('Load Another???????');
     }
-    display();
 };
 
 function dashboard() {
     write_data();
     sessionStorage.removeItem("user")
+    alert();
     window.location.href = '../';
 }
 
@@ -114,6 +119,7 @@ var textFile = null, makeTextFile = function (text) {
 function write_data() {
     var link = document.createElement('a');
     link.setAttribute('download', 'caselaw' + sessionStorage.getItem("user") + '.txt');
+    console.log(result);
     link.href = makeTextFile(result.toString());
     console.log('File Created ' + link.href);
     document.body.appendChild(link);
