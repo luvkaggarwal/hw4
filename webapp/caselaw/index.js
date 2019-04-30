@@ -1,4 +1,5 @@
 var dict = {};
+var result = new Array();
 
 window.onload = function () {
     var user = sessionStorage.getItem("user");
@@ -61,7 +62,7 @@ function display() {
         ele.setAttribute('checked', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 18');
+    console.log('List successfully created. Take 19');
 };
 
 function save_data(obj) {
@@ -78,28 +79,49 @@ function save_data(obj) {
                 data['caselaws'].push(table.rows.item(row).cells[0].childNodes[0].value);
             }
         }
-        alert(data);
-        write_data(data);
+        result.push(data);
+        delete dict[file];
         obj.value = 'Load Another';
+        console.log('Removed ' + file + ' from dictionary');
     } else {
         obj.value = 'Submit';
-        display();
-        alert('Load Another???????');
+        console.log('Load Another???????');
     }
+    display();
 };
 
 function dashboard() {
+    write_data();
     sessionStorage.removeItem("user")
     window.location.href = '../';
 }
 
-function write_data(data) {
-    var fs = require("fs");
-    fs.writeFile( user + ".json", JSON.stringify(data), (err) => {
-        if (err) {
-            console.error(err);
-            return;
-        };
-        console.log("File has been created");
+var textFile = null, makeTextFile = function (text) {
+    var data = new Blob([text], {type: 'text/plain'});
+
+    // If we are replacing a previously generated file we need to
+    // manually revoke the object URL to avoid memory leaks.
+    if (textFile !== null) {
+        window.URL.revokeObjectURL(textFile);
+    }
+
+    textFile = window.URL.createObjectURL(data);
+
+    // returns a URL you can use as a href
+    return textFile;
+};
+
+function write_data() {
+    var link = document.createElement('a');
+    link.setAttribute('download', 'caselaw' + sessionStorage.getItem("user") + '.txt');
+    link.href = makeTextFile(result.toString());
+    console.log('File Created ' + link.href);
+    document.body.appendChild(link);
+
+    // wait for the link to be added to the document
+    window.requestAnimationFrame(function () {
+      var event = new MouseEvent('click');
+      link.dispatchEvent(event);
+      document.body.removeChild(link);
     });
 }
