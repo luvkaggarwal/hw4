@@ -66,7 +66,7 @@ function display() {
         ele.setAttribute('checked', 'true');
         td.appendChild(ele);
     }
-    console.log('List successfully created. Take 20');
+    console.log('List successfully created. Take 21');
 };
 
 function save_data(obj) {
@@ -120,7 +120,8 @@ function write_data() {
     var link = document.createElement('a');
     link.setAttribute('download', 'caselaw' + sessionStorage.getItem("user") + '.txt');
     console.log(result);
-    link.href = makeTextFile(result.toString());
+    alert(result);
+    link.href = makeTextFile(JSON.stringify(result));
     console.log('File Created ' + link.href);
     document.body.appendChild(link);
 
