@@ -10,4 +10,5 @@ function validate(obj) {
         obj.action = "context_analysis";
         obj.submit();
     };
+    console.log('Take 3');
 };
