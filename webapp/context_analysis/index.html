@@ -17,20 +17,20 @@
 
             <div id="data" style="overflow-y: auto; height: 200px; margin: 0px; display: none;">
             	<input type="text" id="sentence" readonly>
-                <b>Make A Choice</b>
-                <select id="choice" required style="width: 100px;">
+                <b>Choose Class</b>
+                <select id="choice" required style="width: 100px; display: inline-block;">
                     <option disabled selected value> -- select -- </option>
                 </select>
                 <b id="prediction"></b>
                 <br>
-                <table id="results">
+                <table id="results" align="center" style="width: 100%;">
                     <thead>
                         <tr>
                             <th colspan="2">Results</th>
                         </tr>
                         <tr>
                             <th>Class</th>
-                            <th>Confidence</th>
+                            <th>Confidence (%)</th>
                         </tr>
                     </thead>
                     <tbody></tbody>

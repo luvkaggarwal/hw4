@@ -2,7 +2,6 @@ var dict = {};
 var result = new Array();
 
 window.onload = function () {
-    console.log('Take 5');
     var user = sessionStorage.getItem("user");
     if ( user == null ) {
         window.location.href = '../';
@@ -32,7 +31,6 @@ function get_file_names(data) {
     var select = document.getElementById('case');
     for (var i = 0; i < cases.length; i++) {
         if (cases[i]) {
-            console.log(cases[i]);
             var opt = document.createElement('option');
             opt.appendChild( document.createTextNode(cases[i]) );
             select.appendChild(opt); 
@@ -45,7 +43,6 @@ function process(data) {
     for (var i = 0; i < sentences.length; i++) {
         if (sentences[i]) {
             var sentence = JSON.parse(sentences[i]);
-            console.log(sentence);
             dict[sentence['sentence']] = {
                 'class': sentence['class'],
                 'confidence': sentence['confidence'],
@@ -66,15 +63,14 @@ function display() {
     var select = document.getElementById('choice');
     for (var i = 0; i < dict[keys[randomIndex]]['potential'].length; i++) {
         var value = dict[keys[randomIndex]]['potential'][i];
-        console.log(value);
         var opt = document.createElement('option');
         opt.appendChild( document.createTextNode(value) );
         select.appendChild(opt); 
     }
 
-    document.getElementById('prediction').innerHTML = 'Predicted Class: ' 
-        + dict[keys[randomIndex]]['class'] + '; Confidence: '
-        + dict[keys[randomIndex]]['confidence'];
+    document.getElementById('prediction').innerHTML = 'Prediction: ' 
+        + dict[keys[randomIndex]]['class'] + '( '
+        + dict[keys[randomIndex]]['confidence'] + '% )';
 
 
     var table = document.getElementById('results').getElementsByTagName('tbody')[0];
@@ -95,7 +91,8 @@ function save_data(obj) {
         var sentence = document.getElementById('sentence').value;
         var data = { 
             'sentence' : sentence, 'user': user,
-            'choice' : document.getElementById('choice').value
+            'choice' : document.getElementById('choice').value,
+            'case' : document.getElementById('case').value
         };
         result.push(data);
         delete dict[sentence];
@@ -129,7 +126,7 @@ var textFile = null, makeTextFile = function (text) {
 
 function write_data() {
     var link = document.createElement('a');
-    link.setAttribute('download', document.getElementById('case').value 
+    link.setAttribute('download', 'sentence' 
         + sessionStorage.getItem("user") + '.txt');
     link.href = makeTextFile(JSON.stringify(result));
     document.body.appendChild(link);
