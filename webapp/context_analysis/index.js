@@ -2,6 +2,7 @@ var dict = {};
 var result = new Array();
 
 window.onload = function () {
+    console.log('Take 5');
     var user = sessionStorage.getItem("user");
     if ( user == null ) {
         window.location.href = '../';
@@ -60,6 +61,7 @@ function display() {
     var keys = Object.keys(dict);
     var randomIndex = Math.floor(Math.random() * keys.length);
     
+    document.getElementById('data').style.display = 'block';
     document.getElementById('sentence').value = keys[randomIndex];
     var select = document.getElementById('choice');
     for (var i = 0; i < dict[keys[randomIndex]]['potential'].length; i++) {
