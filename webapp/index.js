@@ -7,7 +7,7 @@ function validate(obj) {
         obj.action = "caselaw";
         obj.submit();
     } else if ( module == "sentence"){
-        obj.action = "sentence";
+        obj.action = "context_analysis";
         obj.submit();
     };
 };

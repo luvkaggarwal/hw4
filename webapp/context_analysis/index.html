@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <script src="index.js"></script>
+    <title>CONTEXT</title>
+</head>
+<body>
+    <div align="center" style="margin: 8%;">
+        <form method="get">
+            <h1>Sentence Classification</h1>
+            <h3 id="greeting"></h3>
+            <h3>Choose Case:</h3>
+            <select id="case" required onchange="myJsonData(this.value + '.txt').then(function (result) { process(result); });">
+                <option disabled selected value> -- select -- </option>
+            </select>
+
+            <div id="data" style="overflow-y: auto; height: 200px; margin: 0px; display: none;">
+            	<input type="text" id="sentence" readonly>
+                <b>Make A Choice</b>
+                <select id="choice" required style="width: 100px;">
+                    <option disabled selected value> -- select -- </option>
+                </select>
+                <b id="prediction"></b>
+                <br>
+                <table id="results">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Results</th>
+                        </tr>
+                        <tr>
+                            <th>Class</th>
+                            <th>Confidence</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <input type="button" value="Submit" onclick="save_data(this);">
+            <input type="button" value="Save and Exit" onclick="dashboard();">
+        </form>
+    </div>
+</body>
+</html> 
