@@ -45,7 +45,6 @@ function process(data) {
         if (sentences[i]) {
             var sentence = JSON.parse(sentences[i]);
             console.log(sentence);
-            var key = Object.keys(caselaw)[0];
             dict[sentence['sentence']] = {
                 'class': sentence['class'],
                 'confidence': sentence['confidence'],
