@@ -39,6 +39,10 @@ function get_file_names(data) {
 };
 
 function process(data) {
+    var keys = Object.keys(dict);
+    for (var i = 0; i < keys.length; i++) {
+        delete dict[keys[i]];
+    }
     var sentences = data.split("\n");
     for (var i = 0; i < sentences.length; i++) {
         if (sentences[i]) {
@@ -61,6 +65,9 @@ function display() {
     document.getElementById('data').style.display = 'block';
     document.getElementById('sentence').value = keys[randomIndex];
     var select = document.getElementById('choice');
+    while(select.hasChildNodes()) {
+        select.removeChild(select.firstChild);
+    }
     for (var i = 0; i < dict[keys[randomIndex]]['potential'].length; i++) {
         var value = dict[keys[randomIndex]]['potential'][i];
         var opt = document.createElement('option');
@@ -74,14 +81,18 @@ function display() {
 
 
     var table = document.getElementById('results').getElementsByTagName('tbody')[0];
-
+    while(table.hasChildNodes()) {
+        table.removeChild(table.firstChild);
+    }
     for (var i = 0; i < dict[keys[randomIndex]]['potential'].length; i++) {
         var tr = table.insertRow(i);
 
         var td = tr.insertCell(0);
         td.innerHTML = dict[keys[randomIndex]]['potential'][i];
+        td.align = 'center';
         td = tr.insertCell(1);
         td.innerHTML = dict[keys[randomIndex]]['results'][i];
+        td.align = 'center';
     }
 };
 
