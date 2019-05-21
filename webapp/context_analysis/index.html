@@ -16,8 +16,8 @@
             </select>
 
             <div id="data" style="overflow-y: auto; height: 200px; margin: 0px; display: none;">
-            	<input type="text" id="sentence" readonly>
-                <b>Choose Class</b>
+                <textarea id="sentence" readonly rows="2" cols="30"></textarea>
+            	<b>Choose Class</b>
                 <select id="choice" required style="width: 100px; display: inline-block;">
                     <option disabled selected value> -- select -- </option>
                 </select>
@@ -25,16 +25,14 @@
                 <b id="prediction"></b>
                 <br>
                 <table id="results" align="center" style="width: 70%;">
-                    <thead>
-                        <tr>
-                            <th colspan="2">Results</th>
-                        </tr>
-                        <tr>
-                            <th>Class</th>
-                            <th>Confidence (%)</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
+                    <tr>
+                        <td><input type="button" id="claim" onclick="save_data(this.value)"></td>
+                        <td><input type="button" id="grant" onclick="save_data(this.value)"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="fid" onclick="save_data(this.value)"></td>
+                        <td><input type="button" id="others" onclick="save_data(this.value)"></td>
+                    </tr>
                 </table>
             </div>
 

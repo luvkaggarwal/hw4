@@ -96,7 +96,7 @@ function display() {
     }
 };
 
-function save_data(obj) {
+function save_data(value) {
     if ( obj.value == 'Submit' ) {
         var user = sessionStorage.getItem("user");
         var sentence = document.getElementById('sentence').value;
