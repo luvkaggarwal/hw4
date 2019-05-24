@@ -64,54 +64,25 @@ function display() {
     
     document.getElementById('data').style.display = 'block';
     document.getElementById('sentence').value = keys[randomIndex];
-    var select = document.getElementById('choice');
-    while(select.hasChildNodes()) {
-        select.removeChild(select.firstChild);
-    }
+
     for (var i = 0; i < dict[keys[randomIndex]]['potential'].length; i++) {
-        var value = dict[keys[randomIndex]]['potential'][i];
-        var opt = document.createElement('option');
-        opt.appendChild( document.createTextNode(value) );
-        select.appendChild(opt); 
-    }
-
-    document.getElementById('prediction').innerHTML = 'Prediction: ' 
-        + dict[keys[randomIndex]]['class'] + '( '
-        + dict[keys[randomIndex]]['confidence'] + '% )';
-
-
-    var table = document.getElementById('results').getElementsByTagName('tbody')[0];
-    while(table.hasChildNodes()) {
-        table.removeChild(table.firstChild);
-    }
-    for (var i = 0; i < dict[keys[randomIndex]]['potential'].length; i++) {
-        var tr = table.insertRow(i);
-
-        var td = tr.insertCell(0);
-        td.innerHTML = dict[keys[randomIndex]]['potential'][i];
-        td.align = 'center';
-        td = tr.insertCell(1);
-        td.innerHTML = dict[keys[randomIndex]]['results'][i];
-        td.align = 'center';
+        var ele = document.getElementById(dict[keys[randomIndex]]['potential'][i]);
+        ele.value = dict[keys[randomIndex]]['potential'][i] + '-' +
+            dict[keys[randomIndex]]['results'][i]
+        ele.align = 'center';
     }
 };
 
 function save_data(value) {
-    if ( obj.value == 'Submit' ) {
-        var user = sessionStorage.getItem("user");
-        var sentence = document.getElementById('sentence').value;
-        var data = { 
-            'sentence' : sentence, 'user': user,
-            'choice' : document.getElementById('choice').value,
-            'case' : document.getElementById('case').value
-        };
-        result.push(data);
-        delete dict[sentence];
-        obj.value = 'Load Another';
-    } else {
-        display();
-        obj.value = 'Submit';
-    }
+    var user = sessionStorage.getItem("user");
+    var sentence = document.getElementById('sentence').value;
+    var data = { 
+        'sentence' : sentence, 'user': user, 'choice' : value,
+        'case' : document.getElementById('case').value
+    };
+    result.push(data);
+    delete dict[sentence];
+    display();
 };
 
 function dashboard() {

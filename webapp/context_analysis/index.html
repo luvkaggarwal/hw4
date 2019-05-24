@@ -17,26 +17,18 @@
 
             <div id="data" style="overflow-y: auto; height: 200px; margin: 0px; display: none;">
                 <textarea id="sentence" readonly rows="2" cols="30"></textarea>
-            	<b>Choose Class</b>
-                <select id="choice" required style="width: 100px; display: inline-block;">
-                    <option disabled selected value> -- select -- </option>
-                </select>
-                <br>
-                <b id="prediction"></b>
-                <br>
-                <table id="results" align="center" style="width: 70%;">
+                <table align="center" style="width: 70%;">
                     <tr>
-                        <td><input type="button" id="claim" onclick="save_data(this.value)"></td>
-                        <td><input type="button" id="grant" onclick="save_data(this.value)"></td>
+                        <td><input type="button" id="claim" onclick="save_data('claim')"></td>
+                        <td><input type="button" id="grant" onclick="save_data('grant')"></td>
                     </tr>
                     <tr>
-                        <td><input type="button" id="fid" onclick="save_data(this.value)"></td>
-                        <td><input type="button" id="others" onclick="save_data(this.value)"></td>
+                        <td><input type="button" id="fid" onclick="save_data('fid')"></td>
+                        <td><input type="button" id="others" onclick="save_data('others')"></td>
                     </tr>
                 </table>
             </div>
 
-            <input type="button" value="Submit" onclick="save_data(this);">
             <input type="button" value="Save and Exit" onclick="dashboard();">
         </form>
     </div>
