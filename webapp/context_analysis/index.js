@@ -63,10 +63,12 @@ function display() {
     document.getElementById('data').style.display = 'block';
     document.getElementById('sentence').value = keys[randomIndex];
     document.getElementById('file').value = dict[keys[randomIndex]]['file'];
+    console.log(dict[keys[randomIndex]]['potential'].length);
     for (var i = 0; i < dict[keys[randomIndex]]['potential'].length; i++) {
         var ele = document.getElementById(dict[keys[randomIndex]]['potential'][i]);
         ele.value = dict[keys[randomIndex]]['potential'][i] + '-' +
             dict[keys[randomIndex]]['results'][i];
+        console.log(ele.value);
         ele.align = 'center';
     }
 };
