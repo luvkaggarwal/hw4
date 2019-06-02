@@ -66,7 +66,7 @@ function display() {
     for (var i = 0; i < dict[keys[randomIndex]]['potential'].length; i++) {
         var ele = document.getElementById(dict[keys[randomIndex]]['potential'][i]);
         ele.value = dict[keys[randomIndex]]['potential'][i] + '-' +
-            dict[keys[randomIndex]]['results'][i]
+            dict[keys[randomIndex]]['results'][i];
         ele.align = 'center';
     }
 };
