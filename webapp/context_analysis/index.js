@@ -48,8 +48,6 @@ function process(data) {
         if (sentences[i]) {
             var sentence = JSON.parse(sentences[i]);
             dict[sentence['sentence']] = {
-                'class': sentence['class'],
-                'confidence': sentence['confidence'],
                 'potential': sentence['potential'],
                 'results': sentence['results']
             };
@@ -64,7 +62,7 @@ function display() {
     
     document.getElementById('data').style.display = 'block';
     document.getElementById('sentence').value = keys[randomIndex];
-
+    document.getElementById('file').value = dict[keys[randomIndex]]['file'];
     for (var i = 0; i < dict[keys[randomIndex]]['potential'].length; i++) {
         var ele = document.getElementById(dict[keys[randomIndex]]['potential'][i]);
         ele.value = dict[keys[randomIndex]]['potential'][i] + '-' +
@@ -78,7 +76,7 @@ function save_data(value) {
     var sentence = document.getElementById('sentence').value;
     var data = { 
         'sentence' : sentence, 'user': user, 'choice' : value,
-        'case' : document.getElementById('case').value
+        'case' : document.getElementById('file').value
     };
     result.push(data);
     delete dict[sentence];
