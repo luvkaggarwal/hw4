@@ -62,6 +62,7 @@ function display() {
     
     document.getElementById('data').style.display = 'block';
     document.getElementById('sentence').value = keys[randomIndex];
+    document.getElementById('custom').value = keys[randomIndex];
     document.getElementById('file').value = dict[keys[randomIndex]]['file'];
     for (var i = 0; i < dict[keys[randomIndex]]['potential'].length; i++) {
         var ele = document.getElementById(dict[keys[randomIndex]]['potential'][i]);
@@ -80,6 +81,11 @@ function save_data(value) {
     };
     result.push(data);
     delete dict[sentence];
+    display();
+};
+
+function skip() {
+    delete dict[document.getElementById('sentence').value];
     display();
 };
 

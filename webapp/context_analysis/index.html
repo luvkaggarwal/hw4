@@ -27,6 +27,11 @@
                         <td><input type="button" id="fid" onclick="save_data('fid')"></td>
                         <td><input type="button" id="other" onclick="save_data('other')"></td>
                     </tr>
+                    <textarea id="custom" rows="5" cols="30"></textarea>
+                    <tr>
+                        <td><input type="button" onclick="save_data(document.getElementById('custom').value)" value="Custom"></td>
+                        <td><input type="button" onclick="skip()" value="Skip"></td>
+                    </tr>
                 </table>
             </div>
 
