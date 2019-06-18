@@ -64,6 +64,7 @@ function display() {
     document.getElementById('sentence').value = keys[randomIndex];
     document.getElementById('custom').value = keys[randomIndex];
     document.getElementById('file').value = dict[keys[randomIndex]]['file'];
+    console.log(dict[keys[randomIndex]]);
     console.log(dict[keys[randomIndex]]['file']);
     for (var i = 0; i < dict[keys[randomIndex]]['potential'].length; i++) {
         var ele = document.getElementById(dict[keys[randomIndex]]['potential'][i]);
