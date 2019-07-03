@@ -85,11 +85,6 @@ function save_data(value) {
     display();
 };
 
-function skip() {
-    delete dict[document.getElementById('sentence').value];
-    display();
-};
-
 function dashboard() {
     write_data();
     sessionStorage.removeItem("user")
